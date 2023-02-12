@@ -6,7 +6,6 @@ type TProperty = 'body' | 'header' | 'params' | 'query';
 type TAllSchemas = Record<TProperty, Schema<any>>;
 type TGetSchema = <T>(schema: Schema<T>) => Schema<T>;
 type TGetAllSchemas = (getSchema: TGetSchema) => Partial<TAllSchemas>;
-
 type TValidation = (getAllSchemas: TGetAllSchemas) => RequestHandler;
 
 export const validation: TValidation =

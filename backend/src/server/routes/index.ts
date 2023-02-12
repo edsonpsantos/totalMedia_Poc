@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import { StatusCodes } from 'http-status-codes';
 
 import { CountriesController } from '../controllers';
 
@@ -9,6 +8,16 @@ router.get('/', (_, res) => {
   return res.send('API works');
 });
 
+router.get(
+  '/countries',
+  CountriesController.getAllValidation,
+  CountriesController.getAll
+);
+router.get(
+  '/countries/:id',
+  CountriesController.getByIdValidation,
+  CountriesController.getById
+);
 router.post(
   '/countries',
   CountriesController.createValidation,
