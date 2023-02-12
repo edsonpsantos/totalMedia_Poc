@@ -22,7 +22,12 @@ export const getAll = async (
   req: Request<{}, {}, {}, IQueryProps>,
   res: Response
 ) => {
-  console.log(req.query);
-
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Not implemented!');
+  //####################################################################
+  //TO MOCK TEST
+  return res.status(StatusCodes.OK).json({
+    id: 1,
+    name: 'France',
+    vatRate: [5.5, 20, 10],
+  });
+  //####################################################################
 };

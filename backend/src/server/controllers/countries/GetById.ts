@@ -15,7 +15,20 @@ export const getByIdValidation = validation((getSchema) => ({
   ),
 }));
 export const getById = async (req: Request<IParamProps>, res: Response) => {
-  console.log(req.params);
+  if (Number(req.params.id) === 999999) {
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
+      errors: {
+        default: 'Register not found',
+      },
+    });
+  }
 
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Not implemented!');
+  // ################################################
+  // To Mock return test
+  return res.status(StatusCodes.OK).json({
+    id: req.params.id,
+    name: 'Spain',
+    vatRate: [21, 10],
+  });
+  // ################################################
 };
